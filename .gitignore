@@ -1,0 +1,15 @@
+
+.DS_Store
+
+resources/doc/*
+config/*
+robots.txt
+sitemap.xml
+browserconfig.xml
+manifest.json
+public/images/
+dev/logo.png
+favicon.ico
+
+composer.phar
+/vendor/
