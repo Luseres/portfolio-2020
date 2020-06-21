@@ -3,7 +3,7 @@
 $root = $_SERVER['DOCUMENT_ROOT'];
 
 require $root . '/vendor/autoload.php';
-require $root . "/private/functions/functions.php";
+require $root . "/private/includes/functions.php";
 require $root . "/config/general.php";
 
 use Spatie\ArrayToXml\ArrayToXml;

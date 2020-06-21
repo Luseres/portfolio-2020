@@ -10,3 +10,7 @@ function debug($value)
     print_r($value);
     echo "</pre>";
 }
+function get_php_url($url)
+{
+    return $_SERVER['DOCUMENT_ROOT'] . "/" .  $url;
+}
