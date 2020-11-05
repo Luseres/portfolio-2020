@@ -1,12 +1,17 @@
 <?php
 
-header("Message: SGVsbG8gaGVhZGVyIGNoZWNrZXIgOik=");
+session_start();
+if (empty($_SESSION['token'])) {
+    $_SESSION['token'] = bin2hex(random_bytes(32));
+}
 
 require $_SERVER['DOCUMENT_ROOT'] . "/private/includes/functions.php";
 require get_php_url("config/general.php");
 require get_php_url("app/AltoRouter.php");
 
-$config = get_general_settings("en-US");
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 5);
+
+$config = get_general_settings($lang);
 $settings = $config['settings'];
 
 $ip = $_SERVER['REMOTE_ADDR'];
@@ -46,11 +51,14 @@ if (!$settings['enable_www']) {
     }
 }
 
-$router = new AltoRouter(); //Make list of routes and link to views
+$router = new AltoRouter();
 
 $router->map('GET', '/', get_php_url("routes/front_page.php"), 'home');
 $router->map('GET', '/projects', get_php_url("routes/projects.php"), 'projects');
 $router->map('GET', '/project/[*:project]', get_php_url("routes/single_project.php"), 'project');
+$router->map('GET', '/contact', get_php_url("routes/contact.php"), 'contact');
+$router->map('POST', '/contact', get_php_url("routes/handlers/contact_form.php"), 'contactform');
+$router->map('GET', '/blog', get_php_url("routes/blog.php"), 'blog');
 
 $match = $router->match();
 if ($match) {

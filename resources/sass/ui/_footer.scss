@@ -1,0 +1,84 @@
+.footer {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    width: 100vw;
+    @media only screen and (max-width: 1060px) {
+        display: block;
+        .footer__header__list__link__item--hideonbig {
+            display: none;
+        }
+    } 
+    @media only screen and (max-width: 765px) {
+        .footer__header__list__link__item--hideonbig {
+            display: block;
+            grid-column: 3;
+        }
+        .footer__header__list__link--hideonsmall {
+            display: none;
+        }
+    }
+    &__header {
+        line-height: 48px;
+        height: 48px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background-color: #000;
+        padding: 16px 0;
+        &__list {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            margin: 0 32px;
+            @media only screen and (max-width: 765px) {
+                grid-template-columns: auto 1fr auto !important;
+            }
+            &__link {
+                color: #FFF;
+                font-weight: 200;
+                text-align: center;
+            }
+            #hamburgermenu {
+                grid-column: 3;
+                cursor: pointer;
+            }
+        }
+    }
+    &__menu {
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        background-color: #000;
+        height: calc(100vh - 80px);
+        transition: transform ease-in .4s;
+        transform: translateY(calc(100vh));
+        display: none;
+        &__top {
+            padding: 16px 32px;
+            text-align: center;
+            &__icon {
+                height: 48px;
+                width: 48px;
+                line-height: 48px;
+                margin-top: 50px;
+            }
+            &__title {
+                font-weight: 700;
+                font-size: 20px;
+                line-height: 48px;
+                text-align: center;
+                margin-left: 0;
+            }
+        }
+        &__list {
+            margin-top: 50px;
+            &__link {
+                color: #FFF;
+                font-weight: 200;
+                text-align: center;
+                line-height: 48px;
+                &__item {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

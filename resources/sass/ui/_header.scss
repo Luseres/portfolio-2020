@@ -1,0 +1,52 @@
+.header {
+    line-height: 48px;
+    height: 48px;
+    padding: 16px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 64px * 2);
+    z-index: 20;
+    background-color: rgba($color: #000, $alpha: .95);
+
+    @media only screen and (max-width: 1392px) {
+        .header__title {
+            display: none;
+        }
+    }
+    @media only screen and (max-width: 1060px) {
+        display: none;
+    }
+    &__icon {
+        height: 48px;
+        width: 48px;
+    }
+    &__title {
+        font-weight: 700;
+        margin-left: 32px;
+        font-size: 20px;
+        display: inline-block;
+    }
+    &__navigation {
+        &__list {
+            &__link {
+                display: inline-block;
+                margin-left: 64px;
+                color: #FFF;
+                font-weight: 200;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+                .style__button {
+                    &:hover {
+                        text-decoration: none !important;
+                    }
+                }
+            }
+        }
+    }
+}
